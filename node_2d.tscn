@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://j5ukkr8cy0ge"]
+
+[ext_resource type="Script" path="res://Arduino.cs" id="1_yoi3n"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_yoi3n")
+
+[node name="ArduinoContents" type="TextEdit" parent="."]
+offset_left = 297.0
+offset_top = 46.0
+offset_right = 1147.0
+offset_bottom = 643.0
+text = "ACheckText"
+
+[node name="DeviceList" type="ItemList" parent="."]
+offset_left = 4.0
+offset_top = 46.0
+offset_right = 295.0
+offset_bottom = 252.0
+allow_reselect = true
+item_count = 2
+item_0/text = "FirstElement"
+item_1/text = "SecondElement"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 7.0
+offset_top = 11.0
+offset_right = 265.0
+offset_bottom = 34.0
+text = "Available Devices"
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 297.0
+offset_top = 12.0
+offset_right = 555.0
+offset_bottom = 35.0
+text = "Device Controls"
