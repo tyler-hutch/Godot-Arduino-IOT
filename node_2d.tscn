@@ -18,20 +18,33 @@ offset_top = 46.0
 offset_right = 295.0
 offset_bottom = 252.0
 allow_reselect = true
-item_count = 2
-item_0/text = "FirstElement"
-item_1/text = "SecondElement"
 
-[node name="Label" type="Label" parent="."]
+[node name="AvailableDevicesLabel" type="Label" parent="."]
 offset_left = 7.0
 offset_top = 11.0
 offset_right = 265.0
 offset_bottom = 34.0
 text = "Available Devices"
 
-[node name="Label2" type="Label" parent="."]
+[node name="DeviceControlsLabel" type="Label" parent="."]
 offset_left = 297.0
 offset_top = 12.0
 offset_right = 555.0
 offset_bottom = 35.0
 text = "Device Controls"
+
+[node name="TemperatureOutInfo" type="LineEdit" parent="."]
+visible = false
+offset_left = 298.0
+offset_top = 98.0
+offset_right = 420.0
+offset_bottom = 142.0
+
+[node name="TemperatureInput" type="LineEdit" parent="."]
+visible = false
+offset_left = 446.0
+offset_top = 98.0
+offset_right = 568.0
+offset_bottom = 142.0
+
+[connection signal="item_selected" from="DeviceList" to="." method="_on_device_list_item_selected"]
