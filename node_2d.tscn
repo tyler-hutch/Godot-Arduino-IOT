@@ -13,6 +13,7 @@ offset_bottom = 643.0
 text = "ACheckText"
 
 [node name="DeviceList" type="ItemList" parent="."]
+visible = false
 offset_left = 4.0
 offset_top = 46.0
 offset_right = 295.0
