@@ -49,6 +49,10 @@ public partial class Arduino : Node2D
 
 	private void _on_device_list_item_selected(long index)
 	{
+		_get_device_info(index);
+	}
+	private async void _get_device_info(long index)
+	{
 		var selectedItem = items.GetItemText((int)index);
 		if(!text.Text.Contains(selectedItem))
 		{
@@ -58,10 +62,9 @@ public partial class Arduino : Node2D
 			catch{text.Text = "Bad Link";}
 		}
 	}
-	
 	private async void _send_temperature_values()
 	{
-		string jsonData = "{\"name\": \"John\", \"age\": 30}";
+		string jsonData = "{\"temperatureSetpoint\": \"72\", \"timeOn\": \"30\"}";
 
 		// Create an instance of HttpClient
 		using (NetHttp.HttpClient client = new NetHttp.HttpClient())
