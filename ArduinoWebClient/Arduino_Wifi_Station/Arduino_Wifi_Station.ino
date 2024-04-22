@@ -17,17 +17,20 @@ const char* wifi_network_password =  "goCougars";
  
 AsyncWebServer server(80);
 
-String globalAction;
+String temperatureData;
 
 const char index_html[] PROGMEM = "<form action='action' method='post' id='myForm'>\
-<input type='submit' name='B1' value='B1' onclick='updateTextBox(this)'>\
-<input type='submit' name='B2' value='B2' onclick='updateTextBox(this)'>\
-<input type='text' id='textBox' readonly>\
+<input type='submit' name='Update Target Temperature' value='T1' onclick='updateTextBox(this)'>\
+<input type='text' id='temperatureTextBox'>\
+<input type='submit' name='Update Shutoff Time' value='t1' onclick='updateTextBox(this)'>\
+<input type='text' id='timeTextBox'>\
 </form>\
 <script>\
-function updateTextBox(btn) {\
-  document.getElementById('textBox').value = btn.name;\
-}\
+document.getElementById('myForm').onsubmit = function() {\
+  var temperatureValue = document.getElementById('temperatureTextBox').value;\
+  document.getElementById('temperatureTextBox').disabled = true; // Disable textbox after submission\
+  temperatureData = temperatureValue;\
+};\
 </script>";
 
 void action(AsyncWebServerRequest *request) {
@@ -37,9 +40,7 @@ void action(AsyncWebServerRequest *request) {
   for (int i = 0; i < params; i++) {
     AsyncWebParameter* p = request->getParam(i);
     Serial.printf("POST[%s]: %s\n", p->name().c_str(), p->value().c_str());
-    if (p->name() == "action") {
-      globalAction = p->value(); // Store the post form action
-    }
+    Serial.printf("Temperature: %s", temperatureData);
   }
   request->send_P(200, "text/html", index_html);
 }

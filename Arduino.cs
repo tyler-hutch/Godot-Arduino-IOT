@@ -24,13 +24,13 @@ public partial class Arduino : Node2D
 
 	public override void _Ready()
 	{
-		networkAddresses = new string[2] {"http://192.168.1.230/hello", "http://192.168.1.130/badAddress"};
+		networkAddresses = new string[3] {"http://192.168.1.230/hello", "http://192.168.1.230/post", "http://192.168.1.230/"};
 		text = GetNode<TextEdit>("ArduinoContents");
 		items = GetNode<ItemList>("DeviceList");
 		temperatureValue = GetNode<LineEdit>("TemperatureOutInfo");
 		temperatureSetPoint = GetNode<LineEdit>("TemperatureInput");
 		//serialPort = new SerialPort();
-		//serialPort.PortName = "COM4";
+		//serialPort.PortName = "COM8";
 		//serialPort.BaudRate = 115200; 
 		//serialPort.Open();
 		_send_temperature_values();
